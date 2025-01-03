@@ -18,13 +18,20 @@ To get started with Tongue-Tie, follow these simple steps:
    git clone https://github.com/ialekhchaudhary/tongue_tie_app.git
 
 2. Navigate to the project directory
+   ```bash
    cd tongue_tie_app
    
 4. Install dependencies:
+   ```bash
    flutter pub get
    
 6. Run the app:
+   ```bash
    flutter run
+
+7. Clean, Build and Run the App:
+   ```bash
+   flutter clean && flutter pub get && flutter run 
 
 
 
