@@ -22,6 +22,7 @@ class _AssetsSvgImagesGen {
 
   String get phone => '$kSvgImagesPath/phone.svg';
   String get myprofile => '$kSvgImagesPath/myprofile.svg';
+  String get longback => '$kSvgImagesPath/longback.svg';
 }
 
 class Assets {
