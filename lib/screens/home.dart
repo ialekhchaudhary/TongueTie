@@ -90,8 +90,8 @@ class _HomeScreenState extends State<HomeScreen> {
         itemCount: count,
         itemBuilder: (context, index) {
           return Container(
-            width: width * 0.6,
-            padding: EdgeInsets.only(right: 16),
+            width: width * 0.63,
+            // padding: EdgeInsets.only(right: 16),
             child: Card(
               child: Row(
                 children: [
@@ -110,9 +110,9 @@ class _HomeScreenState extends State<HomeScreen> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Progress Tracker',
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
-        Text('See how far you’ve come and where to go next.'),
+        // Text('Progress Tracker',
+        //     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+        // Text('See how far you’ve come and where to go next.'),
         SizedBox(height: 10),
         ToggleButtons(
           borderColor: Colors.grey,
@@ -135,17 +135,6 @@ class _HomeScreenState extends State<HomeScreen> {
               .toList(),
         ),
         SizedBox(height: 20),
-        Wrap(
-          spacing: 8,
-          runSpacing: 8,
-          alignment: WrapAlignment.spaceEvenly,
-          children: [
-            _infoCard('10 min', 'Total Time Spent', Icons.timer),
-            _infoCard('2', 'Completed', Icons.check_circle_outline),
-            _infoCard('2', 'Achievements', Icons.star_border),
-            _infoCard('2', 'Personal Best', Icons.emoji_events),
-          ],
-        ),
       ],
     );
   }
@@ -154,7 +143,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Card(
       elevation: 2,
       child: Container(
-        width: 120,
+        width: double.infinity,
         padding: EdgeInsets.all(8),
         child: Column(
           mainAxisSize: MainAxisSize.min,

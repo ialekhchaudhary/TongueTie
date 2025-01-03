@@ -6,12 +6,22 @@ class _AssetsImagesGen {
   String get logo => '$kImagesPath/logo.png';
 
   String get lesson => '$kImagesPath/lesson.png';
+  String get user => '$kImagesPath/user.png';
+  String get accountsettings => '$kImagesPath/accountsettings.png';
+  String get aboutus => '$kImagesPath/aboutus.png';
+  String get privacypolicy => '$kImagesPath/privacypolicy.png';
+  String get termsandconditions => '$kImagesPath/termsandconditions.png';
+  String get faq => '$kImagesPath/faq.png';
+  String get checkforupdate => '$kImagesPath/checkforupdate.png';
+  String get contactus => '$kImagesPath/contactus.png';
+  String get logout => '$kImagesPath/logout.png';
 }
 
 class _AssetsSvgImagesGen {
   const _AssetsSvgImagesGen();
 
-  String get search => '$kSvgImagesPath/search.svg';
+  String get phone => '$kSvgImagesPath/phone.svg';
+  String get myprofile => '$kSvgImagesPath/myprofile.svg';
 }
 
 class Assets {

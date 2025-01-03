@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tongue_tie_app/screens/profile/profile.dart';
 
 import 'screens/home.dart';
 
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const HomeScreen(),
+      home: const ProfileScreen(),
     );
   }
 }
