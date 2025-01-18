@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:tongue_tie_app/core/utils/asset_provider.dart';
 
 class LessonsScreen extends StatelessWidget {
+  const LessonsScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
