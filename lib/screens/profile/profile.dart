@@ -4,6 +4,14 @@ import 'package:tongue_tie_app/core/constants/color_constants.dart';
 import 'package:tongue_tie_app/core/utils/asset_provider.dart';
 import 'package:tongue_tie_app/core/utils/util.dart';
 import 'package:tongue_tie_app/features/widgets/responsive_text.dart';
+import 'package:tongue_tie_app/screens/profile/widgets/aboutus.dart';
+import 'package:tongue_tie_app/screens/profile/widgets/accountsettings.dart';
+import 'package:tongue_tie_app/screens/profile/widgets/checkforupdate.dart';
+import 'package:tongue_tie_app/screens/profile/widgets/contactus.dart';
+import 'package:tongue_tie_app/screens/profile/widgets/faq.dart';
+import 'package:tongue_tie_app/screens/profile/widgets/myprofile.dart';
+import 'package:tongue_tie_app/screens/profile/widgets/privacypolicy.dart';
+import 'package:tongue_tie_app/screens/profile/widgets/termsandconditions.dart';
 
 class ProfileScreen extends StatefulWidget {
   static var routename;
@@ -83,22 +91,28 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Row(
-                        children: [
-                          Image.asset(
-                            Assets.images.user,
-                            height: height * 0.06,
-                          ),
-                          SizedBox(
-                            width: kHorizontalMargin,
-                          ),
-                          ResponsiveText(
-                            'My Profile',
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                            textColor: Color(kSecondaryTextCol),
-                          ),
-                        ],
+                      InkWell(
+                        onTap: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                                builder: (context) => MyProfileScreen()),
+                          );
+                        },
+                        child: Row(
+                          children: [
+                            Image.asset(
+                              Assets.images.user,
+                              height: MediaQuery.of(context).size.height * 0.06,
+                            ),
+                            SizedBox(width: kHorizontalMargin),
+                            ResponsiveText(
+                              'My Profile',
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                              textColor: Color(kSecondaryTextCol),
+                            ),
+                          ],
+                        ),
                       ),
                       SizedBox(
                         height: kVerticalMargin / 2,
@@ -109,22 +123,28 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       SizedBox(
                         height: kVerticalMargin / 2,
                       ),
-                      Row(
-                        children: [
-                          Image.asset(
-                            Assets.images.accountsettings,
-                            height: height * 0.06,
-                          ),
-                          SizedBox(
-                            width: kHorizontalMargin,
-                          ),
-                          ResponsiveText(
-                            'Account Settings',
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                            textColor: Color(kSecondaryTextCol),
-                          ),
-                        ],
+                      InkWell(
+                        onTap: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                                builder: (context) => AccountSettingsScreen()),
+                          );
+                        },
+                        child: Row(
+                          children: [
+                            Image.asset(
+                              Assets.images.accountsettings,
+                              height: MediaQuery.of(context).size.height * 0.06,
+                            ),
+                            SizedBox(width: kHorizontalMargin),
+                            ResponsiveText(
+                              'Accounts Settings',
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                              textColor: Color(kSecondaryTextCol),
+                            ),
+                          ],
+                        ),
                       ),
                       SizedBox(
                         height: kVerticalMargin / 2,
@@ -135,22 +155,28 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       SizedBox(
                         height: kVerticalMargin / 2,
                       ),
-                      Row(
-                        children: [
-                          Image.asset(
-                            Assets.images.aboutus,
-                            height: height * 0.06,
-                          ),
-                          SizedBox(
-                            width: kHorizontalMargin,
-                          ),
-                          ResponsiveText(
-                            'About Us',
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                            textColor: Color(kSecondaryTextCol),
-                          ),
-                        ],
+                      InkWell(
+                        onTap: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                                builder: (context) => AboutUsScreen()),
+                          );
+                        },
+                        child: Row(
+                          children: [
+                            Image.asset(
+                              Assets.images.aboutus,
+                              height: MediaQuery.of(context).size.height * 0.06,
+                            ),
+                            SizedBox(width: kHorizontalMargin),
+                            ResponsiveText(
+                              'About Us',
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                              textColor: Color(kSecondaryTextCol),
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),
@@ -172,22 +198,28 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Row(
-                        children: [
-                          Image.asset(
-                            Assets.images.privacypolicy,
-                            height: height * 0.06,
-                          ),
-                          SizedBox(
-                            width: kHorizontalMargin,
-                          ),
-                          ResponsiveText(
-                            'Privacy Policy',
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                            textColor: Color(kSecondaryTextCol),
-                          ),
-                        ],
+                      InkWell(
+                        onTap: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                                builder: (context) => PrivacyPolicyScreen()),
+                          );
+                        },
+                        child: Row(
+                          children: [
+                            Image.asset(
+                              Assets.images.privacypolicy,
+                              height: MediaQuery.of(context).size.height * 0.06,
+                            ),
+                            SizedBox(width: kHorizontalMargin),
+                            ResponsiveText(
+                              'Privacy Policy',
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                              textColor: Color(kSecondaryTextCol),
+                            ),
+                          ],
+                        ),
                       ),
                       SizedBox(
                         height: kVerticalMargin / 2,
@@ -198,22 +230,29 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       SizedBox(
                         height: kVerticalMargin / 2,
                       ),
-                      Row(
-                        children: [
-                          Image.asset(
-                            Assets.images.termsandconditions,
-                            height: height * 0.06,
-                          ),
-                          SizedBox(
-                            width: kHorizontalMargin,
-                          ),
-                          ResponsiveText(
-                            'Terms & Conditions',
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                            textColor: Color(kSecondaryTextCol),
-                          ),
-                        ],
+                      InkWell(
+                        onTap: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    TermsAndConditionsScreen()),
+                          );
+                        },
+                        child: Row(
+                          children: [
+                            Image.asset(
+                              Assets.images.termsandconditions,
+                              height: MediaQuery.of(context).size.height * 0.06,
+                            ),
+                            SizedBox(width: kHorizontalMargin),
+                            ResponsiveText(
+                              'Terms & Conditions',
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                              textColor: Color(kSecondaryTextCol),
+                            ),
+                          ],
+                        ),
                       ),
                       SizedBox(
                         height: kVerticalMargin / 2,
@@ -224,22 +263,28 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       SizedBox(
                         height: kVerticalMargin / 2,
                       ),
-                      Row(
-                        children: [
-                          Image.asset(
-                            Assets.images.faq,
-                            height: height * 0.06,
-                          ),
-                          SizedBox(
-                            width: kHorizontalMargin,
-                          ),
-                          ResponsiveText(
-                            'FAQs',
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                            textColor: Color(kSecondaryTextCol),
-                          ),
-                        ],
+                      InkWell(
+                        onTap: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                                builder: (context) => FAQScreen()),
+                          );
+                        },
+                        child: Row(
+                          children: [
+                            Image.asset(
+                              Assets.images.faq,
+                              height: MediaQuery.of(context).size.height * 0.06,
+                            ),
+                            SizedBox(width: kHorizontalMargin),
+                            ResponsiveText(
+                              'FAQs',
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                              textColor: Color(kSecondaryTextCol),
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),
@@ -261,22 +306,28 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Row(
-                        children: [
-                          Image.asset(
-                            Assets.images.checkforupdate,
-                            height: height * 0.06,
-                          ),
-                          SizedBox(
-                            width: kHorizontalMargin,
-                          ),
-                          ResponsiveText(
-                            'Check For Update',
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                            textColor: Color(kSecondaryTextCol),
-                          ),
-                        ],
+                      InkWell(
+                        onTap: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                                builder: (context) => CheckForUpdateScreen()),
+                          );
+                        },
+                        child: Row(
+                          children: [
+                            Image.asset(
+                              Assets.images.checkforupdate,
+                              height: MediaQuery.of(context).size.height * 0.06,
+                            ),
+                            SizedBox(width: kHorizontalMargin),
+                            ResponsiveText(
+                              'Check For Update',
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                              textColor: Color(kSecondaryTextCol),
+                            ),
+                          ],
+                        ),
                       ),
                       SizedBox(
                         height: kVerticalMargin / 2,
@@ -287,22 +338,28 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       SizedBox(
                         height: kVerticalMargin / 2,
                       ),
-                      Row(
-                        children: [
-                          Image.asset(
-                            Assets.images.contactus,
-                            height: height * 0.06,
-                          ),
-                          SizedBox(
-                            width: kHorizontalMargin,
-                          ),
-                          ResponsiveText(
-                            'Contact Us',
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                            textColor: Color(kSecondaryTextCol),
-                          ),
-                        ],
+                      InkWell(
+                        onTap: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                                builder: (context) => ContactUsScreen()),
+                          );
+                        },
+                        child: Row(
+                          children: [
+                            Image.asset(
+                              Assets.images.contactus,
+                              height: MediaQuery.of(context).size.height * 0.06,
+                            ),
+                            SizedBox(width: kHorizontalMargin),
+                            ResponsiveText(
+                              'Contact Us',
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                              textColor: Color(kSecondaryTextCol),
+                            ),
+                          ],
+                        ),
                       ),
                       SizedBox(
                         height: kVerticalMargin / 2,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:tongue_tie_app/screens/lesson/lesson.dart';
 import 'package:tongue_tie_app/screens/message/message.dart';
 import 'package:tongue_tie_app/screens/profile/profile.dart';
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Tongue-Tie',
       theme: ThemeData(
