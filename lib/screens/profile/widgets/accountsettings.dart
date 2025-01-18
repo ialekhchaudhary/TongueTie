@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class AccountSettingsScreen extends StatefulWidget {
+  static var routename;
+
   const AccountSettingsScreen({super.key});
 
   @override

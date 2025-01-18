@@ -4,6 +4,8 @@ import 'package:tongue_tie_app/core/utils/asset_provider.dart';
 import 'package:tongue_tie_app/features/widgets/responsive_text.dart';
 
 class AboutUsScreen extends StatefulWidget {
+  static var routename;
+
   const AboutUsScreen({super.key});
 
   @override
