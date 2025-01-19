@@ -26,6 +26,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(kBackgroundCol),
       body: SingleChildScrollView(
         child: SafeArea(
           child: Column(
