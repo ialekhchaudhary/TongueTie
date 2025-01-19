@@ -16,6 +16,7 @@ class _AssetsImagesGen {
   String get contactus => '$kImagesPath/contactus.png';
   String get logout => '$kImagesPath/logout.png';
   String get updatecheck => '$kImagesPath/updatecheck.png';
+  String get signin => '$kImagesPath/signin.png';
 }
 
 class _AssetsSvgImagesGen {

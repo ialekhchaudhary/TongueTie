@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:tongue_tie_app/screens/auth/login.dart';
 import 'package:tongue_tie_app/screens/lesson/lesson.dart';
 import 'package:tongue_tie_app/screens/message/message.dart';
 import 'package:tongue_tie_app/screens/profile/profile.dart';
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Color(0xffCA6D0D)),
         useMaterial3: true,
       ),
-      home: HomeScreen(),
+      home: SignInScreen(),
     );
   }
 }

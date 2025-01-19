@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:tongue_tie_app/core/utils/util.dart';
+import 'package:tongue_tie_app/core/utils/asset_provider.dart';
+import 'package:tongue_tie_app/screens/auth/register.dart';
+import 'package:tongue_tie_app/screens/home/home.dart';
 
 class SignInScreen extends StatefulWidget {
+  const SignInScreen({Key? key}) : super(key: key);
+
   @override
   _SignInScreenState createState() => _SignInScreenState();
 }
@@ -10,84 +16,103 @@ class _SignInScreenState extends State<SignInScreen> {
   String _username = '';
   String _password = '';
 
-  void _trySubmit() {
-    final isValid = _formKey.currentState?.validate();
-    FocusScope.of(context).unfocus();
+  void _trySignIn() {
+    final isValid = _formKey.currentState!.validate();
+    FocusScope.of(context).unfocus(); // Closes the keyboard
 
-    if (isValid!) {
-      _formKey.currentState?.save();
-      // Use those values to send our auth request ...
-      print('Username: $_username, Password: $_password');
+    if (isValid) {
+      _formKey.currentState!.save();
+      // After saving, navigate to the HomeScreen
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (context) => HomeScreen()),
+      );
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Sign In"),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-      ),
-      body: Center(
-        child: Card(
-          margin: EdgeInsets.all(20),
-          child: SingleChildScrollView(
-            padding: EdgeInsets.all(16),
-            child: Form(
-              key: _formKey,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  Text(
-                    'Welcome Back!',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Form(
+            key: _formKey,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Image.asset(Assets.images.signin),
+                SizedBox(height: kHorizontalMargin),
+                Text('Sign In',
+                    style:
+                        TextStyle(fontSize: 32, fontWeight: FontWeight.bold)),
+                SizedBox(height: 8),
+                Text('Welcome Back!', style: TextStyle(fontSize: 24)),
+                Text('Log in to continue your language journey.',
+                    style: TextStyle(fontSize: 16, color: Colors.grey)),
+                SizedBox(height: 40),
+                TextFormField(
+                  decoration: InputDecoration(
+                    labelText: 'Username',
+                    border: OutlineInputBorder(),
                   ),
-                  SizedBox(height: 20),
-                  TextFormField(
-                    decoration: InputDecoration(labelText: 'Username'),
-                    validator: (value) {
-                      if (value == null || value.isEmpty || value.length < 4) {
-                        return 'Please enter at least 4 characters';
-                      }
-                      return null;
-                    },
-                    onSaved: (value) => _username = value!,
+                  validator: (value) =>
+                      value!.isEmpty ? 'Please enter your username' : null,
+                  onSaved: (value) => _username = value!,
+                ),
+                SizedBox(height: 20),
+                TextFormField(
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    labelText: 'Password',
+                    border: OutlineInputBorder(),
+                    suffixIcon: Icon(Icons.visibility_off),
                   ),
-                  TextFormField(
-                    decoration: InputDecoration(labelText: 'Password'),
-                    obscureText: true,
-                    validator: (value) {
-                      if (value == null || value.isEmpty || value.length < 7) {
-                        return 'Password must be at least 7 characters long';
-                      }
-                      return null;
-                    },
-                    onSaved: (value) => _password = value!,
+                  validator: (value) {
+                    if (value!.isEmpty) return 'Please enter your password';
+                    if (value.length < 6)
+                      return 'Password must be at least 6 characters long';
+                    return null;
+                  },
+                  onSaved: (value) => _password = value!,
+                ),
+                SizedBox(height: 20),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: TextButton(
+                    onPressed: () {}, // Forgot Password Screen
+                    child: Text('Forget Password?'),
                   ),
-                  SizedBox(height: 12),
-                  ElevatedButton(
+                ),
+                SizedBox(height: 20),
+                SizedBox(
+                  width: double.infinity, // Ensures the button takes full width
+                  child: ElevatedButton(
+                    onPressed: _trySignIn,
                     child: Text('Sign In'),
-                    onPressed: _trySubmit,
                     style: ElevatedButton.styleFrom(
                       foregroundColor: Colors.white,
                       backgroundColor: Colors.orange,
+                      padding: EdgeInsets.symmetric(vertical: 12),
+                      textStyle: TextStyle(fontSize: 20),
                     ),
                   ),
-                  TextButton(
-                    child: Text('Don\'t have an account? Sign Up'),
+                ),
+                SizedBox(height: 20),
+                Center(
+                  child: TextButton(
                     onPressed: () {
-                      // Navigate to sign up
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                            builder: (context) => RegisterScreen()),
+                      );
                     },
+                    child: Text(
+                      'Don’t have an account? Sign Up',
+                      style: TextStyle(color: Colors.blue),
+                    ),
                   ),
-                  TextButton(
-                    child: Text('Forget Password?'),
-                    onPressed: () {
-                      // Navigate to password reset
-                    },
-                  )
-                ],
-              ),
+                )
+              ],
             ),
           ),
         ),
