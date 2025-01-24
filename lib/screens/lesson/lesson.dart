@@ -1,109 +1,42 @@
 import 'package:flutter/material.dart';
-import 'dart:math' as math;
-
 import 'package:tongue_tie_app/core/constants/color_constants.dart';
+import 'package:tongue_tie_app/screens/lesson/widgets/language_data.dart';
+import 'package:tongue_tie_app/screens/lesson/widgets/language_lesson.dart';
 
 class LessonsScreen extends StatelessWidget {
-  const LessonsScreen({super.key});
+  const LessonsScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 4,
-      child: Scaffold(
-        backgroundColor: Color(kBackgroundCol),
-        appBar: AppBar(
-          title: Text(
-            'Languages',
-            style: TextStyle(color: Colors.white),
-          ),
-          backgroundColor: Color(kBrandColor),
-          bottom: TabBar(
-            indicatorColor: Colors.amber,
-            labelColor: Colors.white,
-            unselectedLabelColor: Colors.white60,
-            tabs: [
-              Tab(text: 'All Languages'),
-              Tab(text: 'Beginner'),
-              Tab(text: 'Intermediate'),
-              Tab(text: 'Expert'),
-            ],
-          ),
-        ),
-        body: TabBarView(
-          children: [
-            _buildTabContent(context, 'All Languages'),
-            _buildTabContent(context, 'Beginner'),
-            _buildTabContent(context, 'Intermediate'),
-            _buildTabContent(context, 'Expert'),
-          ],
-        ),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Select a Language', style: TextStyle(color: Colors.white)),
+        backgroundColor: Color(kAppBar), // Rich, deep color for a modern look
+        elevation: 0, // Flat design without shadow
       ),
-    );
-  }
-
-  Widget _buildTabContent(BuildContext context, String category) {
-    List<String> languages = [
-      'English',
-      'Spanish',
-      'French',
-      'German',
-      'Chinese',
-      'Japanese',
-      'Russian',
-      'Arabic',
-      'Italian',
-      'Portuguese',
-      'Korean',
-      'Turkish',
-      'Swedish',
-      'Hindi'
-    ];
-
-    // Randomly shuffle the list for a dynamic experience
-    languages.shuffle(math.Random());
-
-    return GridView.builder(
-      padding: EdgeInsets.all(16),
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        crossAxisSpacing: 16,
-        mainAxisSpacing: 16,
-        childAspectRatio: 0.8,
+      body: ListView.separated(
+        itemCount: languageLessons.keys.length,
+        itemBuilder: (context, index) {
+          String language = languageLessons.keys.elementAt(index);
+          return ListTile(
+            title: Text(language, style: TextStyle(fontSize: 18)), // Larger font size for readability
+            trailing: Icon(Icons.keyboard_arrow_right, color: Colors.indigo[900]), // Trailing icon for modern aesthetics
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => LanguageLessonScreen(
+                    language: language,
+                    lessons: languageLessons[language]!,
+                  ),
+                ),
+              );
+            },
+          );
+        },
+        separatorBuilder: (context, index) => Divider(color: Colors.grey[300]), // Subtle dividers for separation
       ),
-      itemCount: languages.length, // Now dynamic based on the list
-      itemBuilder: (context, index) {
-        return _buildLessonCard(context, languages[index]);
-      },
-    );
-  }
-
-  Widget _buildLessonCard(BuildContext context, String language) {
-    String imagePath =
-        'assets/images/languages/${language.toLowerCase()}.png'; // Assuming a structured asset naming convention
-
-    return Card(
-      clipBehavior: Clip.antiAlias,
-      elevation: 4,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
-          Expanded(
-            child: Image.asset(
-              imagePath,
-              fit: BoxFit.cover,
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              language,
-              style: Theme.of(context).textTheme.titleLarge,
-              textAlign: TextAlign.center,
-            ),
-          ),
-        ],
-      ),
+      backgroundColor: Colors.grey[50], // Light background for contrast and space
     );
   }
 }
