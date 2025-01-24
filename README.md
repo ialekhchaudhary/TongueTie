@@ -1,3 +1,6 @@
+![Image](https://github.com/user-attachments/assets/ba899d2a-a8da-44fa-8e43-8a0edc4f8a05)
+
+
 # Tongue-Tie
 
 Welcome to Tongue-Tie, the ultimate language learning companion for travelers around the world. Whether you're looking to pick up a few phrases for your next trip or dive deep into a new language, Tongue-Tie is here to guide you through with easy-to-follow lessons, interactive exercises, and real-world applications.
