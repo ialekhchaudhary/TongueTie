@@ -44,8 +44,6 @@ To get started with Tongue-Tie, follow these simple steps:
     ````bash
     flutter run
 
-
-
 **Prerequisites**
 Before you begin, ensure you have the following installed:
 
