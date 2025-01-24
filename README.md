@@ -34,7 +34,15 @@ To get started with Tongue-Tie, follow these simple steps:
 
 7. Clean, Build and Run the App:
    ```bash
-   flutter clean && flutter pub get && flutter run 
+   flutter clean
+   
+8. Build the App
+   ````bash
+   flutter pub get
+   
+10. Run the App
+    ````bash
+    flutter run
 
 
 
