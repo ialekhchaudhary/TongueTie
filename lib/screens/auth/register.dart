@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tongue_tie_app/core/utils/asset_provider.dart';
+import 'package:tongue_tie_app/core/utils/util.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({Key? key}) : super(key: key);
@@ -49,6 +51,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text('Sign Up'),
       ),
@@ -57,7 +60,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
         child: Form(
           key: _formKey,
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
+              Image.asset(Assets.images.signin),
+              SizedBox(height: kHorizontalMargin),
+              Text('Sign Up',
+                  style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold)),
+              SizedBox(height: 8),
+              Text('Welcome Back!', style: TextStyle(fontSize: 24)),
+              Text('Sign Up to explore your language journey.',
+                  style: TextStyle(fontSize: 16, color: Colors.grey)),
+              SizedBox(height: kHorizontalMargin),
               TextFormField(
                 controller: _firstNameController,
                 decoration: InputDecoration(
@@ -150,13 +163,22 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 child: ElevatedButton(
                   onPressed: _tryRegister,
                   child: Text('Sign Up'),
+                  style: ElevatedButton.styleFrom(
+                    foregroundColor: Colors.white,
+                    backgroundColor: Colors.orange,
+                    padding: EdgeInsets.symmetric(vertical: 12),
+                    textStyle: TextStyle(fontSize: 20),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                  ),
                 ),
               ),
               TextButton(
                 onPressed: () {
                   Navigator.pop(context); // Navigate back to login if needed
                 },
-                child: Text('Already have an account? LOGIN'),
+                child: Center(child: Text('Already have an account? LOGIN')),
               ),
             ],
           ),

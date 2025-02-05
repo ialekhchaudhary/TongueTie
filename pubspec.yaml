@@ -36,6 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   flutter_svg: ^2.0.17
   get: ^4.6.6
+  cached_network_image: ^3.4.1
 
 dev_dependencies:
   flutter_test:

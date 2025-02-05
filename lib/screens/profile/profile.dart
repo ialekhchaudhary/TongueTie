@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:tongue_tie_app/core/constants/color_constants.dart';
@@ -47,6 +48,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       children: [
                         CircleAvatar(
                           radius: 50,
+                          child: CachedNetworkImage(
+                              imageUrl:
+                                  'https://hamrobazaar.blr1.cdn.digitaloceanspaces.com/User/Profile/643dc7b5-795b-4601-9553-5fd70e21c2ad.jpeg'),
                         ),
                         SizedBox(width: kHorizontalMargin * 2),
                         Padding(

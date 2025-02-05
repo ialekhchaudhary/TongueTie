@@ -6,11 +6,14 @@ class LanguageLessonScreen extends StatelessWidget {
   final String language;
   final List<Map<String, dynamic>> lessons;
 
-  const LanguageLessonScreen({Key? key, required this.language, required this.lessons}) : super(key: key);
+  const LanguageLessonScreen(
+      {Key? key, required this.language, required this.lessons})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(kBackgroundCol),
       appBar: AppBar(
         title: Text('$language Lessons'),
         backgroundColor: Color(kAppBar), // A clean, elegant background color
@@ -34,7 +37,8 @@ class LanguageLessonScreen extends StatelessWidget {
                   context: context,
                   backgroundColor: Colors.white,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+                    borderRadius:
+                        BorderRadius.vertical(top: Radius.circular(16)),
                   ),
                   builder: (context) {
                     return Padding(
@@ -45,26 +49,31 @@ class LanguageLessonScreen extends StatelessWidget {
                         children: [
                           Text(
                             lesson['title'],
-                            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.bold),
                           ),
                           SizedBox(height: 8),
                           Text(
                             lesson['description'],
-                            style: TextStyle(fontSize: 16, color: Colors.grey[800]),
+                            style: TextStyle(
+                                fontSize: 16, color: Colors.grey[800]),
                           ),
                           SizedBox(height: 16),
                           if (lesson['objectives'] != null) ...[
                             Text(
                               'Objectives:',
-                              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                              style: TextStyle(
+                                  fontSize: 18, fontWeight: FontWeight.w600),
                             ),
                             SizedBox(height: 8),
                             for (String objective in lesson['objectives'])
                               Padding(
-                                padding: const EdgeInsets.symmetric(vertical: 4.0),
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 4.0),
                                 child: Row(
                                   children: [
-                                    Icon(Icons.check_circle, color: Colors.deepPurple, size: 18),
+                                    Icon(Icons.check_circle,
+                                        color: Colors.deepPurple, size: 18),
                                     SizedBox(width: 8),
                                     Expanded(
                                       child: Text(
@@ -113,19 +122,22 @@ class LanguageLessonScreen extends StatelessWidget {
                         children: [
                           Text(
                             lesson['title'],
-                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold),
                           ),
                           SizedBox(height: 4),
                           Text(
                             lesson['description'],
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
-                            style: TextStyle(fontSize: 14, color: Colors.grey[600]),
+                            style: TextStyle(
+                                fontSize: 14, color: Colors.grey[600]),
                           ),
                         ],
                       ),
                     ),
-                    Icon(Icons.arrow_forward_ios, color: Colors.grey[400], size: 16),
+                    Icon(Icons.arrow_forward_ios,
+                        color: Colors.grey[400], size: 16),
                   ],
                 ),
               ),
@@ -133,7 +145,6 @@ class LanguageLessonScreen extends StatelessWidget {
           },
         ),
       ),
-      backgroundColor: Colors.grey[100], // Light background for better contrast
     );
   }
 }

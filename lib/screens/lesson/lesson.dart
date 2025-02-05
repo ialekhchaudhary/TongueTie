@@ -9,18 +9,24 @@ class LessonsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(kBackgroundCol),
       appBar: AppBar(
-        title: Text('Select a Language', style: TextStyle(color: Colors.white)),
-        backgroundColor: Color(kAppBar), // Rich, deep color for a modern look
-        elevation: 0, // Flat design without shadow
+        title: Text('Select a Language', style: TextStyle(color: Colors.black)),
+        // backgroundColor:
+        //     Color(kBrandColor), // Rich, deep color for a modern look
+        // elevation: 2, // Flat design without shadow
       ),
       body: ListView.separated(
         itemCount: languageLessons.keys.length,
         itemBuilder: (context, index) {
           String language = languageLessons.keys.elementAt(index);
           return ListTile(
-            title: Text(language, style: TextStyle(fontSize: 18)), // Larger font size for readability
-            trailing: Icon(Icons.keyboard_arrow_right, color: Colors.indigo[900]), // Trailing icon for modern aesthetics
+            title: Text(language,
+                style: TextStyle(
+                    fontSize: 18)), // Larger font size for readability
+            trailing: Icon(Icons.keyboard_arrow_right,
+                color:
+                    Colors.indigo[900]), // Trailing icon for modern aesthetics
             onTap: () {
               Navigator.push(
                 context,
@@ -34,9 +40,10 @@ class LessonsScreen extends StatelessWidget {
             },
           );
         },
-        separatorBuilder: (context, index) => Divider(color: Colors.grey[300]), // Subtle dividers for separation
+        separatorBuilder: (context, index) =>
+            Divider(color: Colors.grey[300]), // Subtle dividers for separation
       ),
-      backgroundColor: Colors.grey[50], // Light background for contrast and space
+      // Light background for contrast and space
     );
   }
 }
